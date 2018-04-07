@@ -27,7 +27,6 @@ class VarHandleInlineIntegerTest {
     assertNull(simpleTO.getQualityCode());
   }
 
-
   static final class SimpleTO {
 
     static final VarHandleInlineInteger QUALITY_CODE;

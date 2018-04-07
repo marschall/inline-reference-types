@@ -27,14 +27,12 @@ class MethodHandleInlineIntegerTest {
     assertNull(simpleTO.getQualityCode());
   }
 
-
   static final class SimpleTO {
 
     static final MethodHandleInlineInteger QUALITY_CODE;
 
     private int qualityCode;
     private boolean qualityCodeIsNull;
-
 
     static {
       Lookup lookup = MethodHandles.lookup();

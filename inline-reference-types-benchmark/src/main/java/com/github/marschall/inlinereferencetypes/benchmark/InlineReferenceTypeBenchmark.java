@@ -2,11 +2,23 @@ package com.github.marschall.inlinereferencetypes.benchmark;
 
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
+import java.util.concurrent.TimeUnit;
+
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.Mode;
+import org.openjdk.jmh.annotations.OutputTimeUnit;
+import org.openjdk.jmh.annotations.Scope;
+import org.openjdk.jmh.annotations.Setup;
+import org.openjdk.jmh.annotations.State;
 
 import com.github.marschall.inlinereferencetypes.FieldInlineInteger;
 import com.github.marschall.inlinereferencetypes.MethodHandleInlineInteger;
 import com.github.marschall.inlinereferencetypes.VarHandleInlineInteger;
 
+@BenchmarkMode(Mode.Throughput)
+@OutputTimeUnit(TimeUnit.MICROSECONDS)
+@State(Scope.Benchmark)
 public class InlineReferenceTypeBenchmark {
 
   private IntegerUser integerUser;
@@ -14,6 +26,7 @@ public class InlineReferenceTypeBenchmark {
   private MethodHandleInlineIntegerUser methodHandleInlineIntegerUser;
   private VarHandleInlineIntegerUser varHandleInlineIntegerUser;
 
+  @Setup
   public void setup() {
     this.integerUser = new IntegerUser();
     this.integerUser.setQualityCode(1024);
@@ -28,18 +41,22 @@ public class InlineReferenceTypeBenchmark {
     this.varHandleInlineIntegerUser.setQualityCode(1024);
   }
 
+  @Benchmark
   public Integer integer() {
     return this.integerUser.getQualityCode();
   }
 
+  @Benchmark
   public Integer field() {
     return this.fieldInlineIntegerUser.getQualityCode();
   }
 
+  @Benchmark
   public Integer methodHandle() {
     return this.methodHandleInlineIntegerUser.getQualityCode();
   }
 
+  @Benchmark
   public Integer varHandle() {
     return this.varHandleInlineIntegerUser.getQualityCode();
   }

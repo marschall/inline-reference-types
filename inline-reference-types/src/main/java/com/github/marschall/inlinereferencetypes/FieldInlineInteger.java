@@ -1,4 +1,4 @@
-package com.github.marschall.inlinereferencetype;
+package com.github.marschall.inlinereferencetypes;
 
 import java.lang.reflect.Field;
 

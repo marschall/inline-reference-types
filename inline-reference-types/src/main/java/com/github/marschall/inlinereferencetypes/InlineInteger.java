@@ -1,4 +1,4 @@
-package com.github.marschall.inlinereferencetype;
+package com.github.marschall.inlinereferencetypes;
 
 
 public interface InlineInteger {

@@ -1,4 +1,4 @@
-package com.github.marschall.inlinereferencetype;
+package com.github.marschall.inlinereferencetypes.benchmark;
 
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;

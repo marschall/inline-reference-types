@@ -7,4 +7,12 @@
   </parent>
   <artifactId>inline-reference-types-benchmark</artifactId>
 
+  <dependencies>
+    <dependency>
+      <groupId>com.github.marschall</groupId>
+      <artifactId>inline-reference-types</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+
 </project>

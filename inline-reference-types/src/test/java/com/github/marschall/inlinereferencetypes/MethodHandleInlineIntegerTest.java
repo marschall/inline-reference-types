@@ -1,18 +1,32 @@
 package com.github.marschall.inlinereferencetypes;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 
-import com.github.marschall.inlinereferencetypes.MethodHandleInlineInteger;
-import com.github.marschall.inlinereferencetypes.FieldInlineIntegerTest.SimpleTO;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class MethodHandleInlineIntegerTest {
+class MethodHandleInlineIntegerTest {
 
-  public static void main(String[] args) {
-    SimpleTO simpleTO = new SimpleTO();
-    simpleTO.setQualityCode(42);
-    System.out.println(simpleTO.getQualityCode());
+  private SimpleTO simpleTO;
+
+  @BeforeEach
+  void setUp () {
+    this.simpleTO = new SimpleTO();
   }
+
+  @Test
+  void setReferenceValue() {
+    simpleTO.setQualityCode(42);
+    assertEquals(Integer.valueOf(42), simpleTO.getQualityCode());
+
+    simpleTO.setQualityCode(null);
+    assertNull(simpleTO.getQualityCode());
+  }
+
 
   static final class SimpleTO {
 

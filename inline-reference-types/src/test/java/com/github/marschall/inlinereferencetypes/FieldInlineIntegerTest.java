@@ -1,13 +1,29 @@
 package com.github.marschall.inlinereferencetypes;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import com.github.marschall.inlinereferencetypes.FieldInlineInteger;
 
-public class FieldInlineIntegerTest {
+class FieldInlineIntegerTest {
 
-  public static void main(String[] args) {
-    SimpleTO simpleTO = new SimpleTO();
+  private SimpleTO simpleTO;
+
+  @BeforeEach
+  void setUp () {
+    this.simpleTO = new SimpleTO();
+  }
+
+  @Test
+  void setReferenceValue() {
     simpleTO.setQualityCode(42);
-    System.out.println(simpleTO.getQualityCode());
+    assertEquals(Integer.valueOf(42), simpleTO.getQualityCode());
+
+    simpleTO.setQualityCode(null);
+    assertNull(simpleTO.getQualityCode());
   }
 
   static final class SimpleTO {

@@ -1,0 +1,20 @@
+# JMH version: 1.19
+# VM version: JDK 9.0.4, VM 9.0.4+11
+# VM invoker: /home/marschall/bin/java/jdk-9.0.4/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+
+
+# Run complete. Total time: 00:02:03
+
+Benchmark                                   Mode  Cnt    Score   Error   Units
+InlineReferenceTypeBenchmark.field         thrpt   15   89.580 ± 5.008  ops/us
+InlineReferenceTypeBenchmark.integer       thrpt   15  411.788 ± 0.822  ops/us
+InlineReferenceTypeBenchmark.methodHandle  thrpt   15  104.919 ± 4.319  ops/us
+InlineReferenceTypeBenchmark.varHandle     thrpt   15   84.804 ± 6.763  ops/us
+
+Benchmark result is saved to jmh-result.text

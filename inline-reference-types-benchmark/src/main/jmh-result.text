@@ -1,0 +1,5 @@
+Benchmark                                   Mode  Cnt    Score   Error   Units
+InlineReferenceTypeBenchmark.field         thrpt   15   89.580 ± 5.008  ops/us
+InlineReferenceTypeBenchmark.integer       thrpt   15  411.788 ± 0.822  ops/us
+InlineReferenceTypeBenchmark.methodHandle  thrpt   15  104.919 ± 4.319  ops/us
+InlineReferenceTypeBenchmark.varHandle     thrpt   15   84.804 ± 6.763  ops/us

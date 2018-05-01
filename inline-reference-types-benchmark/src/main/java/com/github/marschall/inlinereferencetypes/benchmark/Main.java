@@ -7,25 +7,32 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
-public class Main {
+public final class Main {
 
-    /**
-     * Main method, runs the benchmarks.
-     *
-     * @param args first element contains the file name
-     * @throws RunnerException  if something goes wrong during execution
-     */
-    public static void main(String[] args) throws RunnerException {
-        Options options = new OptionsBuilder()
-                .include("com.github.marschall.inlinereferencetypes.benchmark.*")
-                .warmupIterations(5)
-                .measurementIterations(5)
-                .forks(3)
-                .resultFormat(TEXT)
-                .threads(Integer.parseInt(args[0]))
-                .output(args[1])
-                .build();
-        new Runner(options).run();
+  /**
+   * Main method, runs the benchmarks.
+   *
+   * @param args first element contains the file name
+   * @throws RunnerException  if something goes wrong during the execution of the benchmarks
+   */
+  public static void main(String[] args) throws RunnerException {
+    int threads;
+    if (args.length > 0) {
+      threads = Integer.parseInt(args[0]);
+    } else {
+      threads = 1;
     }
+    String outputFilename = "inlinereferencetypes-threads" + threads + ".txt";
+    Options options = new OptionsBuilder()
+            .include("com.github.marschall.inlinereferencetypes.benchmark.*")
+            .warmupIterations(5)
+            .measurementIterations(5)
+            .forks(3)
+            .resultFormat(TEXT)
+            .threads(threads)
+            .output(outputFilename)
+            .build();
+    new Runner(options).run();
+  }
 
 }
